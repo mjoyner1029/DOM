@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styling</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Inline CSS for demonstration purposes */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #4CAF50;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s, width 0.3s, height 0.3s;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dynamic Styling Demo</h1>
+        <div id="box">Click me to change color</div>
+        <button id="colorButton">Change Color</button>
+        <button id="resizeButton">Resize Box</button>
+    </div>
+    <script>
+        // Function to change the background color of the box
+        function changeColor() {
+            const box = document.getElementById('box');
+            const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            box.style.backgroundColor = randomColor;
+        }
+
+        // Function to resize the box element
+        function resizeBox() {
+            const box = document.getElementById('box');
+            const newSize = Math.floor(Math.random() * (400 - 150 + 1)) + 150; // Random size between 150px and 400px
+            box.style.width = `${newSize}px`;
+            box.style.height = `${newSize}px`;
+        }
+
+        // Attach event listeners to buttons
+        document.getElementById('colorButton').addEventListener('click', changeColor);
+        document.getElementById('resizeButton').addEventListener('click', resizeBox);
+    </script>
+</body>
+</html>

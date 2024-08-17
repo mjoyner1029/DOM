@@ -1,0 +1,168 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Container Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Product Display Styles */
+.product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.product:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.product p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.product p strong {
+    color: #333;
+}
+
+/* Box Styling for Dynamic CSS Assignment */
+#box {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    background-color: #87CEFA;
+    color: black;
+    line-height: 200px;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box:hover {
+    background-color: #FF6347;
+}
+
+/* Button Styles for Dynamic CSS Assignment */
+#colorButton, #resizeButton {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#colorButton {
+    background-color: #28a745;
+}
+
+#resizeButton {
+    background-color: #007bff;
+}
+
+#colorButton:hover {
+    background-color: #218838;
+}
+
+#resizeButton:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product {
+        width: calc(100% - 40px); /* Adjust width for smaller screens */
+    }
+
+    #box {
+        width: calc(100% - 40px); /* Adjust width for smaller screens */
+    }
+}

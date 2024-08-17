@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Inline CSS for demonstration purposes */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #form-output {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+
+        #form-output h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Form</h1>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <div id="form-output"></div>
+    </div>
+    <script>
+        // Function to handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get form elements
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // Store user input in an object
+            const userInput = {
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Display the user input
+            const output = document.getElementById('form-output');
+            output.innerHTML = `
+                <h2>Form Submission Details:</h2>
+                <p><strong>Name:</strong> ${userInput.name}</p>
+                <p><strong>Email:</strong> ${userInput.email}</p>
+                <p><strong>Message:</strong> ${userInput.message}</p>
+            `;
+
+            // Clear the form fields
+            document.getElementById('contact-form').reset();
+        }
+
+        // Attach event listener to the form
+        document.getElementById('contact-form').addEventListener('submit', handleFormSubmit);
+    </script>
+</body>
+</html>

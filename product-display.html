@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Inline CSS for demonstration purposes */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: inline-block;
+            width: 250px;
+            vertical-align: top;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product List</h1>
+        <div id="product-container"></div>
+    </div>
+    <script>
+        // Array of product objects
+        const products = [
+            { name: "Laptop", price: 999.99, description: "Powerful computing on the go" },
+            { name: "Smartphone", price: 699.99, description: "Stay connected wherever you are" },
+            { name: "Headphones", price: 149.99, description: "Immersive audio experience" }
+        ];
+
+        // Function to create and return a product HTML element
+        function createProductElement(product) {
+            // Create a div element for the product
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            
+            // Populate the div with product information
+            productDiv.innerHTML = `
+                <h3>${product.name}</h3>
+                <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
+                <p>${product.description}</p>
+            `;
+
+            return productDiv;
+        }
+
+        // Function to display products
+        function displayProducts() {
+            // Get the container where products will be displayed
+            const container = document.getElementById('product-container');
+            container.innerHTML = ''; // Clear existing content
+
+            // Iterate over the products array and append each product to the container
+            products.forEach(product => {
+                const productElement = createProductElement(product);
+                container.appendChild(productElement);
+            });
+        }
+
+        // Event listener to display products on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Display products when the DOM content is fully loaded
+            displayProducts();
+        });
+    </script>
+</body>
+</html>
